@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, Renderer2, ChangeDetectorRef} from '@angular/core';
+import { Component, Input, ViewChild, Renderer2, ChangeDetectorRef, ElementRef} from '@angular/core';
 
 import {
     NgModel,
@@ -92,8 +92,8 @@ export class AmexioTypeAheadComponent extends ListBaseComponent<string>{
 
     @ViewChild(NgModel) model: NgModel;
 
-    constructor(renderer: Renderer2, cd: ChangeDetectorRef){
-        super(renderer,cd);
+    constructor(renderer: Renderer2, element: ElementRef,cd: ChangeDetectorRef){
+        super(renderer,element,cd);
     }
     
     initComponent(){
@@ -107,9 +107,11 @@ export class AmexioTypeAheadComponent extends ListBaseComponent<string>{
     }
 
     onDropDownListItemClick(data:any){
+        debugger;
         this.writeValue(data[this.valuefield]);
         this.displayValue = data[this.displayfield];
     }
+
 
     writeValue(v:any){
         super.writeValue(v);
@@ -121,7 +123,6 @@ export class AmexioTypeAheadComponent extends ListBaseComponent<string>{
    
     private showValue(){
         const listitems : any[] = this.viewdata.value;
-        debugger;
         listitems.forEach((item) =>{
             if(item[this.valuefield] === this.value){
                 this.displayValue = item[this.displayfield];

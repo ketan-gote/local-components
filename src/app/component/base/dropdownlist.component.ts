@@ -15,7 +15,8 @@ export class DropDownListComponent {
 
     @Output() itemclick: any = new EventEmitter<any>();
 
-    onClick(event: any){
+    onDropDownListClick(event: any){
+        debugger;
         this.itemclick.emit(event);
     }
 

@@ -6,16 +6,17 @@
 
 <button (click)="addData()">Add Data</button> -->
 
+
+{{userid}}
 <amexio-typeahead [allow-blank]="false" 
                   [field-label]="'First Name'"
                   [value-field]="'id'"
                   [display-field]="'firstName'"
                   [data]="gridata"
-                  [(ngModel)]="title">
+                  [(ngModel)]="userid">
 
 </amexio-typeahead>
 
-{{title}}
 <!--
 <cd-demo [title]="title"></cd-demo>
 <button (click)="currentDate()">Show Current Date Time</button>
