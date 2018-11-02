@@ -1,0 +1,26 @@
+<div  class="inputgroup"> 
+
+        <label>
+          First Name {{self}} {{itemClick}} {{dropdownstyle | json}}
+        </label>
+      
+        <input type="text" class="input-control" (focus)="displayDropDown()" />
+      
+      
+      
+        <div [ngStyle]="dropdownstyle" class="dropdown">
+              <ul class="dropdown-list">
+      
+                <li class="list-items">
+                    <div *ngFor="let item of data" (click)="optionClick(item)"> {{item.value}}</div>
+                </li>
+              </ul>
+        </div>
+        <div class="inputfieldbar"></div>
+</div>
+      
+      
+      
+      
+      
+      

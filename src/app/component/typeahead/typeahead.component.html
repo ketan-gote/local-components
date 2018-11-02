@@ -1,0 +1,36 @@
+<div class="inputgroup">
+
+        <label *ngIf="haslabel" [style.font-style]="fontstyle" [style.font-family]="fontfamily" [style.font-size]="fontsize">
+          {{fieldlabel}}
+        </label>
+      
+        <input type="hidden" [(ngModel)]="value"/>
+
+        <div class="input-container">
+                <em [ngClass]="prefixiconclass"></em>
+                <input  type="text" name="name"
+                        class="input-control"
+                        [ngClass]="{'input-control-error': ((model.dirty || model.touched || (value && value.length>0)) && !model.valid),
+                        'input-disabled' : disabled}"
+                        [required]="!allowblank"
+                        [placeholder]="placeholder"
+                        [disabled]="disabled"
+                        (focus)="focus($event)"
+                        (blur)="blur($event)"
+                        (input)="input($event)"
+                        (change)="change($event)"
+                        [value]="displayValue"/>
+                <em *ngIf="(iconfeedback && (model.dirty || model.touched) && model.valid)" class="fa fa-check"></em>
+                <em *ngIf="(iconfeedback && (model.dirty || model.touched) && !model.valid)" class="fa fa-times icon-error"></em>
+                <em *ngIf="suffixiconclass"  [ngClass]="suffixiconclass"></em>
+        </div>
+
+        <input-help *ngIf="(enablepopover && showerror)" 
+                        [error-msg]="errormsg" 
+                        [min-msg]="minmsg" 
+                        [max-msg]="maxmsg">
+        </input-help>
+        
+        <dropdown-list-item  [ngStyle]="dropdownstyle"  [data]="viewdata" [display-field]="displayfield" [display-value]="displayValue" (itemclick)="onDropDownListItemClick($event)"></dropdown-list-item>
+</div>
+      

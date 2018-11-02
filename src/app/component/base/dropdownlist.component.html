@@ -1,0 +1,9 @@
+<span class="dropdown">
+    <ul class="dropdown-list">
+    <li class="list-items" *ngFor="let item of viewdata | async | filterpipe : displayfield : displayValue "  
+        (click)="onClick(item)">
+        <div>{{item[displayfield]}}</div>
+    </li>
+    </ul>
+</span>
+
