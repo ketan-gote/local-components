@@ -1,24 +1,21 @@
 import { ValueAccessorBase } from './value-accessor';
 import { InputValidator } from './input.validator';
 
-export class BaseInput<T> extends ValueAccessorBase<T> 
-                                    implements InputValidator{
+export class BaseInput<T> extends ValueAccessorBase<T> {
   
-    protected valid : boolean = true;
-
-    focus(event:any){
+    onFocus(event:any){
         this.checkValidity();
     }
 
-    input(event:any){
+    onInput(event:any){
         this.checkValidity();
     }
 
-    blur(event:any){
+    onBlur2(event:any){
         this.checkValidity();
     }
 
-    change(event:any){
+    onChange(event:any){
         this.checkValidity();
     }
 
@@ -29,7 +26,7 @@ export class BaseInput<T> extends ValueAccessorBase<T>
         return true;
     }
 
-    isValid() {
+    isVali1d() {
         return true;
     }
     

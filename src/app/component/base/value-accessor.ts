@@ -1,35 +1,42 @@
 import {ControlValueAccessor} from '@angular/forms';
 
+const noop = () => {
+};
+
 export abstract class ValueAccessorBase<T> implements ControlValueAccessor {
   
-  private innerValue: T;
-  private changed = new Array<(value: T) => void>();
-  private touched = new Array<() => void>();
+    onTouchedCallback: () => void = noop;
+    onChangeCallback: (_: any) => void = noop;
+  
+    innerValue: T;
 
-  get value(): T {
-    return this.innerValue;
-  }
-
-  set value(value: T) {
-    if (this.innerValue !== value) {
-      this.innerValue = value;
-      this.changed.forEach(f => f(value));
+    // get accessor
+    get value(): any {
+      return this.innerValue;
     }
-  }
 
-  writeValue(value: T) {
-    this.innerValue = value;
-  }
+    // set accessor including call the onchange callback
+    set value(v: any) {
+      if (v !== this.innerValue) {
+        this.innerValue = v;
+        this.onChangeCallback(v);
+      }
+    }
+    
+    // From ControlValueAccessor interface
+    writeValue(value: any) {
+      if (value !== this.innerValue) {
+        this.innerValue = value;
+      }
+    }
 
-  registerOnChange(fn: (value: T) => void) {
-    this.changed.push(fn);
-  }
+    // From ControlValueAccessor interface
+    registerOnChange(fn: any) {
+      this.onChangeCallback = fn;
+    }
 
-  registerOnTouched(fn: () => void) {
-    this.touched.push(fn);
-  }
-
-  touch() {
-    this.touched.forEach(f => f());
-  }
+    // From ControlValueAccessor interface
+    registerOnTouched(fn: any) {
+      this.onTouchedCallback = fn;
+    }
 }

@@ -26,7 +26,7 @@ import { DropDownListComponent } from './component/base/dropdownlist.component';
     
     FilterAndSortPipe, FilterPipe,
 
-    TextDemo, CDDemoComponent
+    TextDemo, CDDemoComponent,
   ],
   imports: [
     BrowserModule,

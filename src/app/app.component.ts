@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   dropdowndata : any[];
 
   gridata : any[];
-  constructor(private httpClient : HttpClient,private cd: ChangeDetectorRef){
+  constructor(private httpClient : HttpClient){
     this.dropdowndata = [];
     this.dropdowndata.push({'id':1,'value':'India'});
     this.dropdowndata.push({'id':1,'value':'USA'});

@@ -1,9 +1,13 @@
-<span class="dropdown">
+<!-- <span class="dropdown"> -->
     <ul class="dropdown-list">
-    <li class="list-items" *ngFor="let item of viewdata | async | filterpipe : displayfield : displayValue "  
-        (mousedown)="onDropDownListClick(item)">
-        <div>{{item[displayfield]}}</div>
-    </li>
+        <li  [ngClass]="{'list-items-selected': (i === highlightrow)}" 
+             class="list-items" 
+             [attr.valuefield]="item[valuefield]" 
+             [attr.displayfield]="item[displayfield]" 
+             *ngFor="let item of viewdata | async | filterpipe : displayfield : displayValue ; index as i"  
+            (mousedown)="onDropDownListClick(item)">
+            <div>{{item[displayfield]}}</div>
+        </li>
     </ul>
-</span>
+<!-- </span> -->
 
