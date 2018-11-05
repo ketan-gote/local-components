@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit{
   
   currentdatetime : Date;
-  userid : string = "2";
+  userid : string = "";
 
   dropdowndata : any[];
   private value: string = 'Hello World';

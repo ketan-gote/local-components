@@ -3,7 +3,7 @@
 <div class="inputgroup">
 
         <label *ngIf="haslabel" [style.font-style]="fontstyle" [style.font-family]="fontfamily" [style.font-size]="fontsize">
-          {{fieldlabel}}
+          {{fieldlabel}} {{model.valid}}
         </label>
       
         <input type="hidden" [(ngModel)]="value" name="name">
@@ -12,10 +12,12 @@
         <div class="input-container">
                 <em [ngClass]="prefixiconclass"></em>
                 <input type="text" class="input-control"
+                        [ngClass]="{'input-control-error': ((model.dirty || model.touched || (value && value.length>0)) && !model.valid),
+                        'input-disabled' : disabled}"
+                        [required]="!allowblank" 
                         [value]="displayValue"
                         [attr.placeholder]="placeholder"
                         [attr.disabled] = "disabled ? true: null"
-                        [required]="!allowblank"
                         (focus)="focus($event)"
                         (input)="input($event)"
                         (keyup)="keyup($event)"

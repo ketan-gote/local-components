@@ -126,6 +126,9 @@ export class AmexioTypeAheadComponent extends ListBaseComponent<string> implemen
     input(event:any){
         this.displayValue = event.target.value;
         this.rowindex = 0;
+        if(this.displayValue.length>=0 && !this.self){
+            this.focus(event);
+        }
     }
 
     keyup(event: any){

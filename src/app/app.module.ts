@@ -12,7 +12,6 @@ import { FilterPipe } from './component/pipe/filter.pipe';
 import { FilterAndSortPipe } from './component/pipe/filterandsort.pipe';
 import { TextDemo } from './demo/textdemo';
 import { CDDemoComponent } from './changedetection/cd.component';
-import { DropDownComponent } from './component/dropdown/dropdown.component';
 import { AmexioTypeAheadComponent } from './component/typeahead/typeahead.component';
 import { DropDownListComponent } from './component/base/dropdownlist.component';
 
@@ -22,7 +21,7 @@ import { DropDownListComponent } from './component/base/dropdownlist.component';
   declarations: [
     AppComponent,
     
-    AmexioTextField,AmexioInputHelperComponent,GridComponent,DropDownComponent,DropDownListComponent, AmexioTypeAheadComponent,
+    AmexioTextField,AmexioInputHelperComponent,GridComponent,DropDownListComponent, AmexioTypeAheadComponent,
     
     FilterAndSortPipe, FilterPipe,
 
