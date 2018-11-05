@@ -14,8 +14,12 @@
                   [display-field]="'firstName'"
                   [value-field]="'id'"
                   [(ngModel)]="userid">
-
+                  <ng-template #amexioBodyTmpl  let-row="row">
+                      <strong>{{row.firstName}} </strong>({{row.id}})
+                  </ng-template>
+                
 </amexio-typeahead>
+
 
 <!--
 <cd-demo [title]="title"></cd-demo>

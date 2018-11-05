@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, Renderer2, ChangeDetectorRef, ElementRef, ViewChildren, QueryList, AfterViewInit} from '@angular/core';
+import { Component, Input, ViewChild, Renderer2, ChangeDetectorRef, ElementRef, ViewChildren, QueryList, AfterViewInit, ContentChild, TemplateRef} from '@angular/core';
 
 import {
     NgModel,
@@ -101,12 +101,20 @@ export class AmexioTypeAheadComponent extends ListBaseComponent<string> implemen
 
     dropdown: DropDownListComponent[];
 
+    @ContentChild('amexioBodyTmpl') bodyTemplate: TemplateRef<any>;
+   
     constructor(renderer: Renderer2, element: ElementRef,cd: ChangeDetectorRef){
         super(renderer, element,cd);
     }
 
     ngAfterViewInit(){
+
         this.dropdown = this.dropdownlist.toArray();
+        setTimeout(() => {
+            this.dropdown.map(dropdown => {
+                dropdown.template = this.bodyTemplate;
+            });
+        }, 200);
     }
     
     initComponent(){

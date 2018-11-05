@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   userid : string = "2";
 
   dropdowndata : any[];
-
+  private value: string = 'Hello World';
   gridata : any[];
   constructor(private httpClient : HttpClient){
     this.dropdowndata = [];

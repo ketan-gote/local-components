@@ -1,4 +1,4 @@
-import { Input, Component, Output, EventEmitter, ElementRef, OnInit } from "@angular/core";
+import { Input, Component, Output, EventEmitter, ElementRef, OnInit, TemplateRef } from "@angular/core";
 
 @Component({
     selector : 'dropdown-list-item',
@@ -6,6 +6,8 @@ import { Input, Component, Output, EventEmitter, ElementRef, OnInit } from "@ang
 })
 export class DropDownListComponent implements OnInit{
 
+    template: TemplateRef<any>;
+    
     @Input('data') viewdata : any;
     
     @Input('highlight-row') highlightrow : any;

@@ -1,4 +1,3 @@
-<!-- <span class="dropdown"> -->
     <ul class="dropdown-list">
         <li  [ngClass]="{'list-items-selected': (i === highlightrow)}" 
              class="list-items" 
@@ -6,8 +5,15 @@
              [attr.displayfield]="item[displayfield]" 
              *ngFor="let item of viewdata | async | filterpipe : displayfield : displayValue ; index as i"  
             (mousedown)="onDropDownListClick(item)">
-            <div>{{item[displayfield]}}</div>
+            <ng-container *ngIf="!template">
+                <div>{{item[displayfield]}}</div>    
+            </ng-container>
+
+            <ng-container *ngIf="template">
+                <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: { text : row }, row: item }">
+                </ng-template>
+            </ng-container>
+    
         </li>
     </ul>
-<!-- </span> -->
 
